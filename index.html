@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Homepage</title>
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="assets/img/profile.jpg" alt="Your Name" class="avatar" />
+      <div>
+        <h1>Your Name</h1>
+        <p>Clemson University • Assistant Professor</p>
+        <p class="links">
+          <a href="mailto:you@example.com">Email</a>
+          <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/YOUR-LINK/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+    <nav class="top-nav" id="topNav">
+      <a href="#about">About Me</a>
+      <a href="#awards">Honors & Awards</a>
+      <a href="#news">News</a>
+      <a href="#pubs">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#talks">Invited Talks</a>
+      <a href="#service">Service</a>
+      <a href="#personal">Personal</a>
+      <a href="#map">Map</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Write a short bio here. Mention your department, research areas, and a one‑line mission.</p>
+    <ul class="pill-list">
+      <li>Machine Learning</li><li>Wireless/Communications</li><li>Spatio‑temporal Modeling</li>
+      <li>Physics‑informed Learning</li><li>Forecasting</li>
+    </ul>
+    <div class="highlight">
+      <strong>Ph.D. Positions:</strong> If you're interested in working with me, email your CV, transcripts, and a short paragraph about your research interests.
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="timeline">
+      <li><span class="date">2025‑09</span> Presented an invited seminar at XYZ.</li>
+      <li><span class="date">2025‑08</span> Joined ABC Department as Assistant Professor.</li>
+      <li><span class="date">2025‑06</span> Attended IISE Annual Conference.</li>
+    </ul>
+  </section>
+
+  <section id="awards">
+    <h2>Honors and Awards</h2>
+    <ul>
+      <li>First Place, Best Student Poster, 2024</li>
+      <li>Fellowship Award, 2023</li>
+      <li>Outstanding Ph.D. Student (Research), 2024</li>
+    </ul>
+  </section>
+
+  <section id="pubs">
+    <h2>Publications</h2>
+    <h3>Journal Papers</h3>
+    <ol>
+      <li><strong>Title</strong>, Authors, <em>Venue</em>, Year. <a href="#">PDF</a></li>
+      <li><strong>Title</strong>, Authors, <em>Venue</em>, Year. <a href="#">PDF</a></li>
+    </ol>
+    <h3>Book Chapters</h3>
+    <ol>
+      <li>Chapter Title, in <em>Book</em>, Year.</li>
+    </ol>
+    <h3>Conference Papers</h3>
+    <ol>
+      <li>Paper Title, Conference, Year.</li>
+    </ol>
+    <h3>Patents</h3>
+    <ol>
+      <li>Patent Title (Application #).</li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Invited / Conference Presentations</h2>
+    <ul>
+      <li>Talk Title — Event, City, Month Year</li>
+      <li>Another Talk — Event, City, Month Year</li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching / Mentoring</h2>
+    <h4>Instructor</h4>
+    <ul>
+      <li>Course Code: Course Name, Term</li>
+    </ul>
+    <h4>Teaching Assistant</h4>
+    <ul>
+      <li>Course Code: Course Name, Term</li>
+    </ul>
+    <h4>Student Mentoring</h4>
+    <ul>
+      <li>Student Name (Dates) — Topic</li>
+    </ul>
+  </section>
+
+  <section id="service">
+    <h2>Professional Service and Membership</h2>
+    <ul>
+      <li>Service role — Organization (Dates)</li>
+      <li>Session chair — Conference, Year</li>
+      <li>Reviewer — List of journals</li>
+      <li>Memberships — IISE, INFORMS, IEEE</li>
+    </ul>
+  </section>
+
+  <section id="personal">
+    <h2>Personal</h2>
+    <p>Share a few lines about hobbies; drop images below.</p>
+    <div class="gallery">
+      <img src="assets/img/photo1.jpg" alt="photo 1" />
+      <img src="assets/img/photo2.jpg" alt="photo 2" />
+      <img src="assets/img/photo3.jpg" alt="photo 3" />
+    </div>
+  </section>
+
+  <section id="map">
+    <h2>Map</h2>
+    <p>Embed a map iframe here or a static image.</p>
+    <div class="mapbox">
+      <!-- Example placeholder -->
+      <img src="assets/img/map-placeholder.png" alt="map placeholder" />
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="y"></span> Your Name • <a href="/cv.pdf">CV</a></p>
+  </div>
+</footer>
+
+<script>
+  // current year
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+  // simple scrollspy highlight
+  const links = Array.from(document.querySelectorAll('.top-nav a'));
+  const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+  const onScroll = () => {
+    const y = window.scrollY + 100;
+    let active = 0;
+    sections.forEach((s,i) => { if (s && s.offsetTop <= y) active = i; });
+    links.forEach((l,i) => l.classList.toggle('active', i===active));
+  };
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+</body>
+</html>
