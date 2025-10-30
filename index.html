@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joya Prottasha Das — Homepage</title>
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="assets/img/profile.jpg" alt="Joya Prottasha Das" class="avatar" />
+      <div>
+        <h1>Joya Prottasha Das</h1>
+        <p>Graduate Student • Assistant Professor</p>
+        <p class="links">
+          <a href="mailto:prottasha.joya@gmail.com">Email</a>
+          <a href="https://github.com/prottashajoya" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/dasjoya/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+    <nav class="top-nav" id="topNav">
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Honors & Awards</a>
+      <a href="#research">Research</a>
+      <a href="#pubs">Publications</a>
+      <a href="#teaching">Teaching</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p><em>Short bio goes here.</em> Replace this paragraph with a 3–5 sentence summary of your current status, department, and research interests.</p>
+    <ul class="pill-list">
+      <li>Primary interest 1</li><li>Primary interest 2</li><li>Primary interest 3</li>
+    </ul>
+    <div class="section-note">
+      <strong>Note:</strong> This page is generated from a template. I'll happily auto-fill real details once provided.
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="compact">
+      <li><strong>Degree • Field</strong> — University, Year–Year</li>
+      <li><strong>Degree • Field</strong> — University, Year–Year</li>
+    </ul>
+  </section>
+
+  <section id="awards">
+    <h2>Honors & Awards</h2>
+    <ul class="compact">
+      <li>Scholarship/Fellowship — Year</li>
+      <li>Dean's List/Academic Award — Year</li>
+    </ul>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <p>One short paragraph summarizing your research themes, methods, and goals.</p>
+    <ul>
+      <li><strong>Project A:</strong> one-line summary and what you contributed.</li>
+      <li><strong>Project B:</strong> one-line summary and outcome (poster/paper/code).</li>
+    </ul>
+  </section>
+
+  <section id="pubs">
+    <h2>Publications</h2>
+    <h3>Conference & Journal Papers</h3>
+    <ol>
+      <li>Author, <strong>Title</strong>, <em>Venue</em>, Year. <a href="#">PDF</a></li>
+    </ol>
+    <h3>Preprints</h3>
+    <ol>
+      <li>Author, <strong>Title</strong>, Year. <a href="#">PDF</a></li>
+    </ol>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <ul class="compact">
+      <li><strong>Course Code:</strong> Course Title — Role (TA/Instructor), Term</li>
+      <li><strong>Course Code:</strong> Course Title — Role (TA/Instructor), Term</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="y"></span> Joya Prottasha Das • <a href="/cv.pdf">CV</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+  const links = Array.from(document.querySelectorAll('.top-nav a'));
+  const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+  const onScroll = () => {
+    const y = window.scrollY + 100;
+    let active = 0;
+    sections.forEach((s,i) => { if (s && s.offsetTop <= y) active = i; });
+    links.forEach((l,i) => l.classList.toggle('active', i===active));
+  };
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+</body>
+</html>
