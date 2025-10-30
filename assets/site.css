@@ -26,3 +26,16 @@ h2{margin-top:2.2rem}
   .top-nav{display:flex;flex-wrap:wrap;gap:.25rem}
   .top-nav a{margin-left:0}
 }
+
+/* ▼▼ Make the Email / GitHub / LinkedIn links vertical ▼▼ */
+.links{
+  display:flex;
+  flex-direction:column;   /* stack links top-to-bottom */
+  align-items:flex-start;
+  gap:.3rem;
+  margin:.25rem 0 0;
+}
+.links a{
+  display:block;           /* ensure each link takes its own line */
+  text-decoration:none;
+}
